@@ -1,5 +1,4 @@
 # Ticketing-System-SE3070_WD_30
- Ticketing System Using Angular and Springboot
  
 # Project Name - Ticketing System
 # Group NO : SE3070_WD_30
