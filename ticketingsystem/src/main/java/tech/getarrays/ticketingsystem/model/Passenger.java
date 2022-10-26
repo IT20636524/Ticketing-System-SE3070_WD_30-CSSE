@@ -1,12 +1,31 @@
 package tech.getarrays.ticketingsystem.model;
 
-public class Passenger {
+import javax.persistence.*;
+import java.io.Serializable;
+@Entity
+public class Passenger implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false,updatable = false)
     private Long id;
     private String fullName;
     private String email;
     private String mobile;
     private String nic;
     private String password;
+    private String imageUrl;
+
+    public Passenger() {}
+
+    public Passenger(Long id, String fullName, String email, String mobile, String nic, String password, String imageUrl) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.mobile = mobile;
+        this.nic = nic;
+        this.password = password;
+        this.imageUrl = imageUrl;
+    }
 
     public Long getId() {
         return id;
@@ -56,4 +75,15 @@ public class Passenger {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", nic='" + nic + '\'' +
+                ", password='" + password + '\'' +
+                ", imagfeUrl='" + imageUrl +  '\'' +
+                '}';
+    }
 }
