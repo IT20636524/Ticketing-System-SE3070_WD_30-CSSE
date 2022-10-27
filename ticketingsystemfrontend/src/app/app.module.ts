@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminFareDashboardComponent } from './admin-fare-dashboard/admin-fare-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoute: Routes = [
  
@@ -26,7 +27,8 @@ const appRoute: Routes = [
     HomeComponent,
     AdminHeaderComponent,
     AdminFareDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
