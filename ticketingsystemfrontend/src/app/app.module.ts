@@ -9,12 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminFareDashboardComponent } from './admin-fare-dashboard/admin-fare-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoute: Routes = [
  
   { path: '', component:  HomeComponent},
   { path: 'admindash', component:  AdminDashboardComponent},
-  { path: 'adminfaredash', component:  AdminFareDashboardComponent}
+  { path: 'adminfaredash', component:  AdminFareDashboardComponent},
+  { path: 'busschedule', component:  BusScheduleComponent}
   
 ];
 
@@ -26,11 +29,13 @@ const appRoute: Routes = [
     HomeComponent,
     AdminHeaderComponent,
     AdminFareDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    BusScheduleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoute)
   ],
   exports: [RouterModule],
