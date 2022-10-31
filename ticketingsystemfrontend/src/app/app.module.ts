@@ -20,14 +20,15 @@ const appRoute: Routes = [
   { path: 'admindash', component:  AdminDashboardComponent},
   { path: 'adminfaredash', component:  AdminFareDashboardComponent},
   { path: 'busschedule', component:  BusScheduleComponent},
-  { path: 'profile', component:  ProfileComponent}
+  { path: 'profile', component:  ProfileComponent},
+  { path: 'register', component:  RegisterComponent}
   
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
     FooterComponent,
     HeaderComponent,
     HomeComponent,
