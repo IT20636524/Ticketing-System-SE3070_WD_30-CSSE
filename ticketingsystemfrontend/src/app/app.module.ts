@@ -18,7 +18,8 @@ const appRoute: Routes = [
   { path: '', component:  HomeComponent},
   { path: 'admindash', component:  AdminDashboardComponent},
   { path: 'adminfaredash', component:  AdminFareDashboardComponent},
-  { path: 'busschedule', component:  BusScheduleComponent}
+  { path: 'busschedule', component:  BusScheduleComponent},
+  { path: 'profile', component:  ProfileComponent}
   
 ];
 
