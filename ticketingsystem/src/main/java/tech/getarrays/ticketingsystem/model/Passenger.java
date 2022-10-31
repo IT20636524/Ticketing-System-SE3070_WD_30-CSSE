@@ -15,9 +15,11 @@ public class Passenger implements Serializable {
     private String password;
     private String imageUrl;
 
+    private String passengerCode;
+
     public Passenger() {}
 
-    public Passenger(Long id, String fullName, String email, String mobile, String nic, String password, String imageUrl) {
+    public Passenger(Long id, String fullName, String email, String mobile, String nic, String password, String imageUrl, String passengerCode) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
@@ -25,6 +27,7 @@ public class Passenger implements Serializable {
         this.nic = nic;
         this.password = password;
         this.imageUrl = imageUrl;
+        this.passengerCode = passengerCode;
     }
 
     public Long getId() {
@@ -73,6 +76,22 @@ public class Passenger implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPassengerCode() {
+        return passengerCode;
+    }
+
+    public void setPassengerCode(String passengerCode) {
+        this.passengerCode = passengerCode;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
