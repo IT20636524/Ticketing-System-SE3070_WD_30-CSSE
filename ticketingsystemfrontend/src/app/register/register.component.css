@@ -1,0 +1,32 @@
+body{
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,161,0,0.6365896700477065) 99%);
+}
+
+/* .register{
+
+    margin-left: 600px;
+    display: block;
+} */
+.register_btn{
+    display: flex;
+    justify-content: center;
+    margin-left: 170px;
+}
+
+.register_btn2{
+    display: flex;
+    justify-content: center;
+    margin-left: 420px;
+}
+/* register form css */
+.gradient-custom-4 {
+/* fallback for old browsers */
+background: #84fab0;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+}
