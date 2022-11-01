@@ -2,10 +2,7 @@ package tech.getarrays.ticketingsystem.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tech.getarrays.ticketingsystem.model.Passenger;
 import tech.getarrays.ticketingsystem.service.PassengerService;
 
@@ -22,6 +19,11 @@ public class PassengerResource {
     public ResponseEntity<Passenger> addPassenger(@RequestBody Passenger passenger){
         Passenger newPassenger = passengerService.addPassenger(passenger);
         return new ResponseEntity<>(newPassenger, HttpStatus.CREATED);
+    }
+    @GetMapping("/find/{id}")
+    public ResponseEntity<Passenger> getStudentById(@PathVariable("id") Long id) {
+        Passenger passenger = passengerService.findPassengerById(id);
+        return new ResponseEntity<>(passenger, HttpStatus.OK);
     }
 
 }

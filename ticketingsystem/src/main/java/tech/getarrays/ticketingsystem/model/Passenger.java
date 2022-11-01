@@ -102,7 +102,7 @@ public class Passenger implements Serializable {
                 ", email='" + email + '\'' +
                 ", nic='" + nic + '\'' +
                 ", password='" + password + '\'' +
-                ", imagfeUrl='" + imageUrl +  '\'' +
+                ", imageUrl='" + imageUrl +  '\'' +
                 '}';
     }
 }
