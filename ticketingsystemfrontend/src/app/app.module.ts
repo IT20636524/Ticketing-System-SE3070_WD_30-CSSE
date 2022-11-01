@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoute: Routes = [
  
@@ -43,6 +44,7 @@ const appRoute: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoute)
   ],
   exports: [RouterModule],
