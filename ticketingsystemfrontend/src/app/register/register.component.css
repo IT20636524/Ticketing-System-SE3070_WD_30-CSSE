@@ -3,11 +3,22 @@ body{
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,161,0,0.6365896700477065) 99%);
 }
 
-.register{
+/* .register{
+
+    margin-left: 600px;
     display: block;
+} */
+.register_btn{
+    display: flex;
     justify-content: center;
+    margin-left: 170px;
 }
 
+.register_btn2{
+    display: flex;
+    justify-content: center;
+    margin-left: 420px;
+}
 /* register form css */
 .gradient-custom-4 {
 /* fallback for old browsers */
