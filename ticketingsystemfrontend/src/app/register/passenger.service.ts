@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 import { Passenger } from "./passenger";
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Passenger } from "./passenger";
 })
 
 export class PassengerService {
-    private apiServeUrl = '';
+    private apiServeUrl = environment.apiBaseUrl;
 
     constructor(private http: HttpClient){}
 
