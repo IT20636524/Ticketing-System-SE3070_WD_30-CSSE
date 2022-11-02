@@ -38,7 +38,8 @@ const appRoute: Routes = [
     SearchPipe,
     AdminFareDashboardComponent,
     AdminDashboardComponent,
-    BusScheduleComponent
+    BusScheduleComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
