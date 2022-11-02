@@ -11,6 +11,7 @@ import { AdminFareDashboardComponent } from './admin-fare-dashboard/admin-fare-d
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BusScheduleAdminComponent } from './bus-schedule-admin/bus-schedule-admin.component';
 
 const appRoute: Routes = [
  
@@ -30,7 +31,8 @@ const appRoute: Routes = [
     AdminHeaderComponent,
     AdminFareDashboardComponent,
     AdminDashboardComponent,
-    BusScheduleComponent
+    BusScheduleComponent,
+    BusScheduleAdminComponent
   ],
   imports: [
     BrowserModule,
