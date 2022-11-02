@@ -17,6 +17,8 @@ export class RegisterComponent implements OnInit {
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = 'https://www.youtube.com/c/TestyCodies/';
+
+  log(x:any) {console.log(x);}
   
   passengerService: any;
   passengers!: Passenger[];
@@ -24,6 +26,7 @@ export class RegisterComponent implements OnInit {
   constructor(passengerService:PassengerService) { }
 
   ngOnInit(): void {
+    
   }
 
   public getPassengers(): void{

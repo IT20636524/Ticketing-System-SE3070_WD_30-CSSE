@@ -22,9 +22,10 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"><i
                                                         class="fa-solid fa-user"></i></span>
-                                                <input type="text" ngModel class="form-control flex-nowrap"
-                                                    name="fullName" placeholder="Your Name" aria-label="Your Name"
+                                                <input required type="text" ngModel name="FullName" #fullName="ngModel" (change)="log(fullName)" class="form-control flex-nowrap"
+                                                     placeholder="Your Name" aria-label="Your Name"
                                                     aria-describedby="addon-wrapping">
+                                                    <div class="alert alert-danger" *ngIf="fullName.touched && fullName.errors?.['required']">Full name is required</div>
                                             </div>
                                         </div>
 
@@ -34,8 +35,8 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"><i
                                                         class="fa-solid fa-user"></i></span>
-                                                <input type="text" ngModel class="form-control" placeholder="Your NIC"
-                                                    name="nic" aria-label="Your Name" aria-describedby="addon-wrapping">
+                                                <input type="text" ngModel name="nic" #nic="ngModel" (change)="log(nic)" class="form-control" placeholder="Your NIC"
+                                                     aria-label="Your Name" aria-describedby="addon-wrapping">
                                             </div>
                                         </div>
 
@@ -45,8 +46,8 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"> <i
                                                         class="fa-regular fa-envelope"></i></span>
-                                                <input type="email" ngModel class="form-control"
-                                                    placeholder="Your Email" name="email" aria-label="Your Email"
+                                                <input type="email" ngModel name="email" #email="ngModel" (change)="log(email)"class="form-control"
+                                                    placeholder="Your Email"  aria-label="Your Email"
                                                     aria-describedby="addon-wrapping">
                                             </div>
                                         </div>
@@ -57,8 +58,8 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"> <i
                                                         class="fa-solid fa-phone"></i></span>
-                                                <input type="text" ngModel class="form-control"
-                                                    placeholder="Your Mobile No" name="mobile" aria-label="Your Mobile"
+                                                <input type="text" ngModel name="mobile" #mobile="ngModel" (change)="log(mobile)" class="form-control"
+                                                    placeholder="Your Mobile No" aria-label="Your Mobile"
                                                     aria-describedby="addon-wrapping" maxlength="10">
                                             </div>
                                         </div>
@@ -70,8 +71,8 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"> <i
                                                         class="fa fa-lock" aria-hidden="true"></i></span>
-                                                <input type="password" ngModel class="form-control"
-                                                    placeholder="New Password" name="password" aria-label="Your Email"
+                                                <input type="password" ngModel name="password" #password="ngModel" (change)="log(password)"class="form-control"
+                                                    placeholder="New Password"  aria-label="Your Email"
                                                     aria-describedby="addon-wrapping">
                                             </div>
 
@@ -83,8 +84,8 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"><i class="fa fa-lock"
                                                         aria-hidden="true"></i></span>
-                                                <input type="password" ngModel class="form-control"
-                                                    placeholder="Confirm password" name="confirmPassword"
+                                                <input type="password" ngModel name="confirmPassword" class="form-control"
+                                                    placeholder="Confirm password" 
                                                     aria-label="Your Email" aria-describedby="addon-wrapping">
                                             </div>
 
@@ -108,8 +109,8 @@
             <div class="d-flex ">
                 <!-- <button type="button"
                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button> -->
-                <button type="button" id="add-passenger-form" class="btn btn-success btn-rounded register_btn col-md-3">Back</button>
-                <button type="submit" [disabled]="addForm.invalid" 
+                <button type="submit"  class="btn btn-success btn-rounded register_btn col-md-3">Back</button>
+                <button type="submit" id="add-passenger-form" 
                     class="btn btn-success btn-rounded register_btn2 col-md-3">Register</button>
             </div>
         </form>
