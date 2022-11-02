@@ -12,28 +12,27 @@ import { PassengerService } from './passenger.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  title = 'QRcodes';
-  name = 'Angular ' + VERSION.major;
-  elementType = NgxQrcodeElementTypes.URL;
-  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  value = 'https://www.youtube.com/c/TestyCodies/';
+  // title = 'QRcodes';
+  // name = 'Angular ' + VERSION.major;
+  // elementType = NgxQrcodeElementTypes.URL;
+  // correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  // value = 'https://www.youtube.com/c/TestyCodies/';
 
-  log(x:any) {console.log(x);}
-  
-  passengerService: any;
-  passengers!: Passenger[];
+  // log(x:any) {console.log(x);}
 
-  constructor(passengerService:PassengerService) { }
+  public passengers!: Passenger[];
+
+  constructor(private passengerService:PassengerService) { }
 
   ngOnInit(): void {
-    
+    this.getPassengers();
   }
 
   public getPassengers(): void{
     this.passengerService.getPassengers().subscribe(
       (response: Passenger[]) => {
         this.passengers = response;
-        console.log(response);
+        console.log(this.passengers);
       },
       (error:HttpErrorResponse) => {
         alert(error.message);
@@ -50,12 +49,10 @@ export class RegisterComponent implements OnInit {
         this.getPassengers();
         addForm.reset();
         alert('successful');
-        console.log('success');
       },
       (error:HttpErrorResponse) => {
         alert(error.message);
         addForm.reset();
-        console.log('error');
       }
     )
   }
