@@ -1,6 +1,7 @@
 package com.example.busticketingapp;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,11 +18,25 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     ImageButton bottomsheet;
+    ImageButton paymentbtn;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        paymentbtn=findViewById(R.id.paymentbtn);
+        paymentbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MyQRActivity.class));
+            }
+        });
+
+
         bottomsheet = findViewById(R.id.regbtn);
         bottomsheet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,5 +67,6 @@ public class MainActivity extends AppCompatActivity {
         dialog.getWindow().setGravity(Gravity.BOTTOM);
 
     }
+
 
 }

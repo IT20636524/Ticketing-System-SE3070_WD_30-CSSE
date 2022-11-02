@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BusTicketingApp">
+
         <activity
             android:name=".IntroActivity"
             android:exported="true">
@@ -20,8 +21,16 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
+        <activity
+            android:name=".MyQRActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FinishJourneyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StartJourneyActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
