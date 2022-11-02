@@ -1,14 +1,14 @@
 <body>
     <div class="register">
         <div class="text-center ">
-            <img class="mt-5 mb-4" src="https://img.freepik.com/premium-vector/bus-vector_20448-202.jpg?w=740" height="100" width="170"
-            alt="logo" loading="lazy" />
-          </div>  
-       
+            <img class="mt-5 mb-4" src="https://img.freepik.com/premium-vector/bus-vector_20448-202.jpg?w=740"
+                height="100" width="170" alt="logo" loading="lazy" />
+        </div>
+
         <h1 class="text-center mb-4">Register</h1>
     </div>
     <div>
-        <form>
+        <form #addForm="ngForm" (ngSubmit)="onAddPassenger(addForm)">
             <section class="vh-100 bg-image mb-5">
                 <div class="mask d-flex align-items-center h-100 ">
                     <div class="container h-100">
@@ -18,57 +18,75 @@
                                     <div class="card-body p-5">
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example1cg">Full Name</label>
-                                          
-                                                <div class="input-group flex-nowrap">
-                                                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-                                                    <input type="text" class="form-control flex-nowrap"  placeholder="Your Name" aria-label="Your Name" aria-describedby="addon-wrapping">
-                                                  </div>
+
+                                            <div class="input-group flex-nowrap">
+                                                <span class="input-group-text" id="addon-wrapping"><i
+                                                        class="fa-solid fa-user"></i></span>
+                                                <input type="text" ngModel class="form-control flex-nowrap"
+                                                    name="fullName" placeholder="Your Name" aria-label="Your Name"
+                                                    aria-describedby="addon-wrapping">
+                                            </div>
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example1cg">NIC</label>
-                                          
-                                                <div class="input-group flex-nowrap">
-                                                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Your NIC" aria-label="Your Name" aria-describedby="addon-wrapping">
-                                                  </div>
+
+                                            <div class="input-group flex-nowrap">
+                                                <span class="input-group-text" id="addon-wrapping"><i
+                                                        class="fa-solid fa-user"></i></span>
+                                                <input type="text" ngModel class="form-control" placeholder="Your NIC"
+                                                    name="nic" aria-label="Your Name" aria-describedby="addon-wrapping">
+                                            </div>
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example3cg"> Email</label>
-                                          
+
                                             <div class="input-group flex-nowrap">
-                                                <span class="input-group-text" id="addon-wrapping">  <i class="fa-regular fa-envelope"></i></span>
-                                                <input type="text" class="form-control" placeholder="Your Email" aria-label="Your Email" aria-describedby="addon-wrapping">
-                                              </div>
+                                                <span class="input-group-text" id="addon-wrapping"> <i
+                                                        class="fa-regular fa-envelope"></i></span>
+                                                <input type="email" ngModel class="form-control"
+                                                    placeholder="Your Email" name="email" aria-label="Your Email"
+                                                    aria-describedby="addon-wrapping">
+                                            </div>
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example3cg">Mobile No</label>
-                                           
+
                                             <div class="input-group flex-nowrap">
-                                                <span class="input-group-text" id="addon-wrapping">  <i class="fa-solid fa-phone"></i></span>
-                                                <input type="text" class="form-control" placeholder="Your Mobile No" aria-label="Your Email" aria-describedby="addon-wrapping">
-                                              </div>
+                                                <span class="input-group-text" id="addon-wrapping"> <i
+                                                        class="fa-solid fa-phone"></i></span>
+                                                <input type="text" ngModel class="form-control"
+                                                    placeholder="Your Mobile No" name="mobile" aria-label="Your Mobile"
+                                                    aria-describedby="addon-wrapping" maxlength="10">
+                                            </div>
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example4cg">New Password</label>
-                                         
+                                            <label class="form-label" for="form3Example4cg" name="password">New
+                                                Password</label>
+
                                             <div class="input-group flex-nowrap">
-                                                <span class="input-group-text" id="addon-wrapping"> <i class="fa fa-lock" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="New Password" aria-label="Your Email" aria-describedby="addon-wrapping">
-                                              </div>
-                                              
+                                                <span class="input-group-text" id="addon-wrapping"> <i
+                                                        class="fa fa-lock" aria-hidden="true"></i></span>
+                                                <input type="password" ngModel class="form-control"
+                                                    placeholder="New Password" name="password" aria-label="Your Email"
+                                                    aria-describedby="addon-wrapping">
+                                            </div>
+
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cdg">Confirm password</label>
-                                          
+
                                             <div class="input-group flex-nowrap">
-                                                <span class="input-group-text" id="addon-wrapping"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Confirm password" aria-label="Your Email" aria-describedby="addon-wrapping">
-                                              </div>
+                                                <span class="input-group-text" id="addon-wrapping"><i class="fa fa-lock"
+                                                        aria-hidden="true"></i></span>
+                                                <input type="password" ngModel class="form-control"
+                                                    placeholder="Confirm password" name="confirmPassword"
+                                                    aria-label="Your Email" aria-describedby="addon-wrapping">
+                                            </div>
 
                                         </div>
 
@@ -80,12 +98,6 @@
                                                         service</u></a>
                                             </label>
                                         </div>
-
-
-
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -96,10 +108,15 @@
             <div class="d-flex ">
                 <!-- <button type="button"
                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button> -->
-                <button type="button" class="btn btn-success btn-rounded register_btn col-md-3">Back</button>
-                <button type="button" class="btn btn-success btn-rounded register_btn2 col-md-3">Register</button>
+                <button type="button" id="add-passenger-form" class="btn btn-success btn-rounded register_btn col-md-3">Back</button>
+                <button type="submit" [disabled]="addForm.invalid" 
+                    class="btn btn-success btn-rounded register_btn2 col-md-3">Register</button>
             </div>
         </form>
-        <br/><br/><br/>
+        <br /><br /><br />
+        <div class="container">
+            <!-- <ngx-qrcode [elementType]="elementType" [value]="value" cssClass="aclass" errorCorrectionLevel="L"> -->
+            <!-- </ngx-qrcode> -->
+        </div>
     </div>
 </body>

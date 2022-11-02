@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FormsModule } from '@angular/forms';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 const appRoute: Routes = [
  
@@ -45,6 +46,7 @@ const appRoute: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxQRCodeModule,
     RouterModule.forRoot(appRoute)
   ],
   exports: [RouterModule],
