@@ -10,10 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminFareDashboardComponent } from './admin-fare-dashboard/admin-fare-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './admin-fare-dashboard/search.pipe';
 import { ProfileComponent } from './profile/profile.component';
-import { HttpClientModule } from '@angular/common/http';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
-import { HttpClientModule } from '@angular/common/http';
 
 const appRoute: Routes = [
  
@@ -34,6 +35,7 @@ const appRoute: Routes = [
     HeaderComponent,
     HomeComponent,
     AdminHeaderComponent,
+    SearchPipe,
     AdminFareDashboardComponent,
     AdminDashboardComponent,
     BusScheduleComponent
@@ -43,7 +45,7 @@ const appRoute: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxQRCodeModule,
+    // NgxQRCodeModule,
     RouterModule.forRoot(appRoute)
   ],
   exports: [RouterModule],

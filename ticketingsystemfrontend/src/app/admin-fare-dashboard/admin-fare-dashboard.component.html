@@ -1,19 +1,105 @@
 <app-admin-header></app-admin-header>
 
-  <!-- Background image -->
-  <div
-    class="bg-image bg-opacity-10"
-    style="
+<!-- Background image -->
+<div class="bg-image bg-opacity-10" style="
       background-color:rgb(240,255,255);
-      height: 70vh;
-    "
-  >
-    <div class="mask gradient-custom">
-      <div class="h-100" style="margin: 200px;">
-        <h1 class="text-grey mb-0">Hello Admin,</h1><br />
-        <h1 class="text-grey mb-0">Welcome to Bus Ticketing Admin Fare Page</h1>
+      height: 100vh;
+    ">
+  
+    
+    <div>
+      <ul class="navbar-nav">
+       
       
+        <li class="nav-item active">
+         
+          <a style="color:black;" style="margin-left: 30px; margin-top: 50px;" >Filter by:</a>
+   
+          <button type="button" class="btn" style="background: white; margin-left: 30px; margin-top: 50px;">
+            Route
+          </button>
+          <button type="button" class="btn" style="background: white; margin-top: 50px;">
+            Date
+          </button>
+          <button type="button" class="btn" style="background: white; margin-top: 50px;">
+            Time
+          </button>   
+          <form class="form-inline me-5" style="width: 300px; float: right; margin-top: 50px;">
+            <input type="search" style="color:black;"  [(ngModel)]="searchText" class="form-control mr-sm-2" placeholder="Search Buses..." required>
+         </form>
+           
+        </li>
+      
+       
+      </ul>
+     
+    </div>
+   
+
+
+  <table class="table table-striped table-hover mt-5" style="width:80%; margin-left: 140px;">
+    <thead style="background: #32cd32">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Bus No</th>
+        <th scope="col">Route No</th>
+        <th scope="col">Time Period</th>
+        <th scope="col">No Of Passengers</th>
+        <th scope="col">Date</th>
+        <th scope="col">Total Fare</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let fare of fares | search: searchText">
+      <tr>
+        <th scope="row">{{fare?.id}}</th>
+        <td> {{fare?.busNo}}</td>
+        <td> {{fare?.routeNo}}</td>
+        <td> {{fare?.timePeriod}}</td>
+        <td> {{fare?.date}}</td>
+        <td> {{fare?.noOfPassengers}}</td>
+        <td> {{fare?.totalFare}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="container" style="margin-left: 150px; margin-top: 50px;  margin-bottom: 50px;">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card border border-Success shadow-0 mb-3" style="max-width: 18rem;">
+          <div class="card-header">Total NO Of Buses</div>
+          <div class="card-body text-Success">
+            <h5 class="card-title">08</h5>
+            <p class="card-text">Date:02/04/2022</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+
+        <div class="card border border-Success shadow-0 mb-3" style="max-width: 18rem;">
+          <div class="card-header">Total NO Of Journeys</div>
+          <div class="card-body text-Success">
+            <h5 class="card-title">Success card title</h5>
+            <p class="card-text">Date:02/04/2022</p>
+          </div>
+        </div>
+       
+      </div>
+      <div class="col-sm">
+        
+        <div class="card border border-Success shadow-0 mb-3" style="max-width: 18rem;">
+          <div class="card-header">Total Fares</div>
+          <div class="card-body text-Success">
+            <h5 class="card-title">Rs.480000</h5>
+            <p class="card-text">Date:02/04/2022</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-  <!-- Background image -->
+
+
+</div>
+<!-- Background image -->

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BusTicketingApp</string>
+    <string name="get_started">Get Started</string>
+    <string name="bus_ticketing_app">Bus Ticketing App</string>
+    <string name="easygo">EasyGo</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="name_edit">Name</string>
+    <string name="name">Name</string>
+</resources>
