@@ -41,7 +41,8 @@ const appRoute: Routes = [
     AdminFareDashboardComponent,
     AdminDashboardComponent,
     BusScheduleComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
