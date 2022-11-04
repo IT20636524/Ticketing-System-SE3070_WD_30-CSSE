@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './admin-fare-dashboard/search.pipe';
 import { ProfileComponent } from './profile/profile.component';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { HomeHeaderComponent } from './home-header/home-header.component';
 
 const appRoute: Routes = [
  
@@ -38,14 +40,15 @@ const appRoute: Routes = [
     SearchPipe,
     AdminFareDashboardComponent,
     AdminDashboardComponent,
-    BusScheduleComponent
+    BusScheduleComponent,
+    HomeHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    // NgxQRCodeModule,
+    NgxQRCodeModule,
     RouterModule.forRoot(appRoute)
   ],
   exports: [RouterModule],

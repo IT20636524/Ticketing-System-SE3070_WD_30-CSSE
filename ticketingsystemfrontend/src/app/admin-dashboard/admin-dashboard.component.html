@@ -58,7 +58,8 @@
         <th scope="col">Time Period</th>
       </tr>
     </thead>
-    <tbody *ngFor="let busSchedule of busSchedules">
+    <tbody *ngFor="let busSchedule">
+      <!-- <tbody *ngFor="let busSchedule of busSchedules"> -->
       <tr>
         <th scope="row">{{busSchedule?.id}}</th>
         <td>{{busSchedule?.startLocation}}</td>
