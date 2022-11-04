@@ -14,6 +14,7 @@ export class AppComponent {
   admindash: boolean = false;
   adminfaredash: boolean = false;
   register: boolean = false;
+  buses: boolean = false;
  
   ngOnInit():void {
    
@@ -22,14 +23,16 @@ export class AppComponent {
   constructor (private zone: NgZone, private router: Router) {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
-        if (event.url === '/admindash' || event.url ==='/adminfaredash' || event.url ==='/register'  || event.url ==='/' ) {
+        if (event.url === '/admindash' || event.url ==='/adminfaredash' || event.url ==='/register'  || event.url ==='/' || event.url ==='/buses') {
           this.admindash = true;
           this.adminfaredash = true;
           this.register = true;
+          this.buses = true;
         } else {
           this.admindash = false;
           this.adminfaredash = false;
           this.register = false;
+          this.buses = false;
         }
       }
     });

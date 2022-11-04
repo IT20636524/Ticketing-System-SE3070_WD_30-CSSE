@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { HomeHeaderComponent } from './home-header/home-header.component';
+import { BusesComponent } from './buses/buses.component';
 
 const appRoute: Routes = [
  
@@ -25,7 +26,8 @@ const appRoute: Routes = [
   { path: 'adminfaredash', component:  AdminFareDashboardComponent},
   { path: 'busschedule', component:  BusScheduleComponent},
   { path: 'profile', component:  ProfileComponent},
-  { path: 'register', component:  RegisterComponent}
+  { path: 'register', component:  RegisterComponent},
+  { path: 'buses', component:  BusesComponent}
   
 ];
 
@@ -42,7 +44,8 @@ const appRoute: Routes = [
     AdminDashboardComponent,
     BusScheduleComponent,
     HomeHeaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    BusesComponent
   ],
   imports: [
     BrowserModule,
