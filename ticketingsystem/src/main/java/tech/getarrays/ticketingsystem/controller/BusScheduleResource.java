@@ -37,4 +37,16 @@ public class BusScheduleResource {
         return new ResponseEntity<>(newBusSchedule, HttpStatus.CREATED);
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<BusSchedule> updateBusSchedule(@RequestBody BusSchedule busSchedule){
+        BusSchedule updateBusSchedule = busScheduleService.updateBusSchedule(busSchedule);
+        return new ResponseEntity<>(updateBusSchedule, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteBusSchedule(@PathVariable ("id") Long id) {
+        busScheduleService.deleteBusSchedule(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

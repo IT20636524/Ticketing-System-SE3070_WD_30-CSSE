@@ -32,4 +32,12 @@ public class BusScheduleService {
                 .orElseThrow(() -> new UserNotFoundException("User by id" + id + "was not found"));
     }
 
+    public BusSchedule updateBusSchedule(BusSchedule busSchedule) {
+        return busScheduleRepo.save(busSchedule);
+    }
+
+    public void deleteBusSchedule(Long id){
+        busScheduleRepo.deleteBusScheduleById(id);
+    }
+
 }

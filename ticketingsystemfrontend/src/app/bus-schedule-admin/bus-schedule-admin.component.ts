@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { BusSchedule } from '../bus-schedule/bus-schedule';
+import { BusScheduleService } from '../bus-schedule/bus-schedule.service';
 
 @Component({
   selector: 'app-bus-schedule-admin',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusScheduleAdminComponent implements OnInit {
 
-  constructor() { }
+  public busSchedules : BusSchedule[]=[];
 
-  ngOnInit(): void {
+  constructor(private busSheduleService: BusScheduleService){}
+
+  ngOnInit() {
+    this.getBusSchedule();
+    
+  }
+
+  public getBusSchedule(): void {
+    this.busSheduleService.getBusSchedule().subscribe(
+      (response: BusSchedule[]) => {
+        this.busSchedules = response;
+        console.log(this.busSchedules);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 }

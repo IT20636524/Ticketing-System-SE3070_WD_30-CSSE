@@ -1,1 +1,76 @@
-<p>bus-schedule-admin works!</p>
+
+<div
+
+    class="bg-image bg-opacity-10"
+    style="
+      background-color:rgb(240,255,255);
+      height: 70vh;
+    "
+  >
+
+  <div>
+    <h1 style="margin-top: 20px; margin-left: 600px; font-family: fantasy;">Available Bus</h1>
+    <ul class="navbar-nav mr-auto">
+    
+      <li class="nav-item active">
+
+        
+ 
+        <!-- <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style=" margin-left: 200px; margin-top: 50px;width: 300px;">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> -->
+        <!-- <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" margin-left: 80px; margin-top: 50px;width: 300px;">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> -->
+        <!-- <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" margin-left: 80px; margin-top: 50px;width: 300px;">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> -->
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0" >
+        <input type="search" ngModel (ngModelChange)="searchFares(key.value)" #key="ngModel" style="color:black;"
+         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+     </form> -->
+  </div>
+
+
+  <table class="table table-striped table-hover mt-5 " style="margin-right:100px;">
+    <thead style="background: #32cd32">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Start Location</th>
+        <th scope="col">Arriving Location</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time Period</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let busSchedule of busSchedules">
+      <tr>
+        <th scope="row">{{busSchedule?.id}}</th>
+        <td>{{busSchedule?.startLocation}}</td>
+        <td>{{busSchedule?.arrivingLocation}}</td>
+        <td>{{busSchedule?.date}}</td>
+        <td>{{busSchedule?.timePeriod}}</td>
+       
+
+      </tr>
+    </tbody>
+  </table>
+  
+  
+</div>
