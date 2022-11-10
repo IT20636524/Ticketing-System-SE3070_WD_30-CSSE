@@ -32,5 +32,15 @@ public class PassengerResource {
         Passenger passenger = passengerService.findPassengerById(id);
         return new ResponseEntity<>(passenger, HttpStatus.OK);
     }
+    @PutMapping("/update")
+    public ResponseEntity<Passenger> updatePassenger(@RequestBody Passenger passenger) {
+        Passenger updatePassenger = passengerService.updatePassenger(passenger);
+        return new ResponseEntity<>(updatePassenger, HttpStatus.OK);
+    }
+    @DeleteMapping ("/delete/{id}")
+    public ResponseEntity<?> deletePassenger(@PathVariable("id") Long id) {
+        passengerService.deletePassenger(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }
