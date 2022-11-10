@@ -113,8 +113,10 @@
             height="50"
            
           />
-         
+          
         </a>
+        <!-- <div class="container" id="main-container"> -->
+
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
           <li class="nav-item" style="margin-left: 50px;">
@@ -127,9 +129,11 @@
             <a class="nav-link" href="#" style="color: black;">Travels</a>
             
           </li>
+          <!-- <li *ngFor= "let passenger of passengers"class="nav-item">
+            <a class="nav-link" (click)="onOpenProfile(passenger, 'view')" routerLink="/profile" style="color: black;">Profile</a>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" routerLink="/profile" style="color: black;">Profile</a>
-          </li>
            <li class="nav-item">
             <a class="nav-link" routerLink="/about-us" style="color: black;">About Us</a>
           </li>
@@ -140,5 +144,8 @@
   
         </ul>
         <!-- Left links -->
+
+        <!-- </div> -->
+        
       </div>
       <!-- Collapsible wrapper -->

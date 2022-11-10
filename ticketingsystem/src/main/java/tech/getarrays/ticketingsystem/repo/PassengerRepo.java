@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface PassengerRepo extends JpaRepository<Passenger, Long> {
 
     Optional<Passenger> findPassengerById(Long id);
+
+    void deletePassengerById(Long id);
 }
