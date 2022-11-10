@@ -1,2 +1,2 @@
-# BusTicketingApp
- Bus Ticketing App - CSSE Project
+# e-travel
+Ticketing System for a Public Transport Network
