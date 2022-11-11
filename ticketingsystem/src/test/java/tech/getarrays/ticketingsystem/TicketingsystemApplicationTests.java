@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class TicketingsystemApplicationTests {
@@ -36,5 +36,23 @@ class TicketingsystemApplicationTests {
 	public void testReadAll(){
 		List<Passenger> list = passengerRepo.findAll();
 		assertThat(list).size().isGreaterThan(0);
+	}
+
+	@Test
+	public void testReadAll2(){
+		List<Passenger> list = passengerRepo.findAll();
+		assertFalse(list.isEmpty());
+	}
+
+	@Test
+	public void testFindPassengerById(){
+		Optional<Passenger> passenger = passengerRepo.findPassengerById(5L);
+		assertEquals("Sachin",passenger.get().getFullName());
+	}
+
+	@Test
+	public void testFindPassengerById2(){
+		Optional<Passenger> passenger = passengerRepo.findPassengerById(5L);
+		assertFalse(passenger.isEmpty());
 	}
 }
