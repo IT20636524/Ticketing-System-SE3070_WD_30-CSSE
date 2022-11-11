@@ -23,7 +23,7 @@ export class AppComponent {
   constructor (private zone: NgZone, private router: Router) {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
-        if (event.url === '/admindash' || event.url ==='/adminfaredash' || event.url ==='/register'  || event.url ==='/' || event.url ==='/buses') {
+        if (event.url === '/admindash' || event.url ==='/adminfaredash' || event.url ==='/register'|| event.url ==='/buses'  || event.url ==='/') {
           this.admindash = true;
           this.adminfaredash = true;
           this.register = true;

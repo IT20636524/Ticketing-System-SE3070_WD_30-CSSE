@@ -17,7 +17,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { HomeHeaderComponent } from './home-header/home-header.component';
-import { BusesComponent } from './buses/buses.component';
+// import { BusScheduleAdminComponent } from './bus-schedule-admin/bus-schedule-admin.component';
+import { BusScheduleAdminDashComponent } from './bus-schedule-admin-dash/bus-schedule-admin-dash.component';
+import { CommonModule } from '@angular/common';
 
 const appRoute: Routes = [
  
@@ -27,7 +29,7 @@ const appRoute: Routes = [
   { path: 'busschedule', component:  BusScheduleComponent},
   { path: 'profile', component:  ProfileComponent},
   { path: 'register', component:  RegisterComponent},
-  { path: 'buses', component:  BusesComponent}
+  { path: 'buses', component:  BusScheduleAdminDashComponent}
   
 ];
 
@@ -45,9 +47,10 @@ const appRoute: Routes = [
     BusScheduleComponent,
     HomeHeaderComponent,
     ProfileComponent,
-    BusesComponent
+    BusScheduleAdminDashComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
