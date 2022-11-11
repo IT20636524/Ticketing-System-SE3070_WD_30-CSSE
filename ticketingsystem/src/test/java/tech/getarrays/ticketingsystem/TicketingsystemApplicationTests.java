@@ -70,19 +70,20 @@ class TicketingsystemApplicationTests {
 		assertThat(list).size().isGreaterThan(0);
 	}
 
-//	@Test
-//	public void testAddFares(){
-//		Fares fares=new Fares();
-//		fares.setId(5L);
-//		fares.setRouteNo("009996");
-//		fares.setBusNo("tv3443");
-//		fares.setTimePeriod("8.00-12.00");
-//		fares.setNoOfPassengers("200");
-//		fares.setTotalFare("60000");
-//		fares.setDate("2022-08-20");
-//		faresRepo.save(fares);
-//		assertNotNull(faresRepo.findFareById(5L));
-//	}
+	@Test
+	public void testAddFares(){
+		Fares fares=new Fares();
+		fares.setId(8L);
+		fares.setRouteNo("009996");
+		fares.setBusNo("tv3443");
+		fares.setTimePeriod("8.00-12.00");
+		fares.setNoOfPassengers("200");
+		fares.setTotalFare("60000");
+		fares.setDate("2022-08-20");
+		fares.setFareNo("123");
+		faresRepo.save(fares);
+		assertNotNull(faresRepo.findFareById(8L));
+	}
 
 	@Test
 	public void testReadAllBusSchedules(){
@@ -93,14 +94,14 @@ class TicketingsystemApplicationTests {
 	@Test
 	public void testAddBusSchedules(){
 		BusSchedule busSchedule=new BusSchedule();
-		busSchedule.setId(7L);
+		busSchedule.setId(8L);
 		busSchedule.setStartLocation("Colombo");
 		busSchedule.setArrivingLocation("Balangoda");
 		busSchedule.setDate("27-10-2022");
 		busSchedule.setTimePeriod("8.00-12-00");
 		busSchedule.setBusNo("tv3333");
 		busScheduleRepo.save(busSchedule);
-		assertNotNull(busScheduleRepo.findBusScheduleById(7L));
+		assertNotNull(busScheduleRepo.findBusScheduleById(8L));
 
 	}
 
