@@ -1,7 +1,7 @@
 <section style="background-color: #eee;">
     <div class="container py-5">
 
-        <div class="row" id="viewProfile">
+        <div class="row">
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="row">
@@ -11,29 +11,22 @@
                                 <div class="card-body text-center">
                                     <img src="https://w0.peakpx.com/wallpaper/107/46/HD-wallpaper-best-pose-for-profile-for-men-profile-pose-men-best-glasses.jpg"
                                         alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"><br /><br />
-
-                                    <p class="text-muted mb-1"> <button type="button"
+                                    <button type="button"
                                             class="btn btn-outline-primary ms-1">Upload
-                                            Image</button></p>
+                                            Image</button>
                                     <div class="d-flex justify-content-center mb-2">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div *ngFor="let passenger of passengers" class="col-lg-6">
+                        <div class="col-lg-6">
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <h4>
-
-                                                <input type="hidden" ngModel="{{passenger.id}}" name="id"
-                                                    class="form-control" id="id" placeholder="Email">
-                                                <input type="hidden" ngModel="{{passenger.passengerCode}}"
-                                                    name="userCode" class="form-control" id="userCode"
-                                                    placeholder="Email">
-                                                <p class="mb-0">{{passenger.fullName}}</p>
-
+                                                {{fullName}}
+                                                <br/>       
                                             </h4>
                                         </div>
                                     </div>
@@ -42,7 +35,7 @@
                                             <p class="mb-0">Email</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">{{passenger.email}}</p>
+                                            <div>{{email}}</div>
                                         </div>
                                     </div>
                                     <hr>
@@ -51,7 +44,7 @@
                                             <p class="mb-0">Mobile No</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">{{passenger.mobile}}</p>
+                                            <div>{{mobile}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -68,35 +61,29 @@
                             </div>
                         </div>
                     </div><br />
-                    <form #editForm="ngForm">
 
+                    <form #editForm="ngForm">
                         <div class="row">
                             <div class="col-sm-5 col-md-6">
                                 <label for="name">Email</label>
-                                <input type="email" ngModel="{{editPassenger.email}}" name="email" class="form-control"
+                                <input type="email" ngModel="{{email}}" name="email" class="form-control"
                                     id="email" aria-describedby="emailHelp" placeholder="Email">
                             </div>
-                            <input type="hidden" ngModel="{{editPassenger.id}}" name="id" class="form-control" id="id"
-                                placeholder="Email">
-                            <input type="hidden" ngModel="{{editPassenger.passengerCode}}" name="userCode"
-                                class="form-control" id="userCode" placeholder="Email">
-
                             <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                                 <label for="email">Full Name</label>
-                                <input type="text" ngModel="{{editPassenger.fullName}}" name="fullName"
+                                <input type="text" ngModel="{{fullName}}" name="fullName"
                                     class="form-control" id="fullName" placeholder="Full Name">
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-sm-6 col-md-5 col-lg-6">
                                 <label for="course">Mobile No</label>
-                                <input type="text" ngModel="{{editPassenger.mobile}}" name="mobile" class="form-control"
+                                <input type="text" ngModel="{{mobile}}" name="mobile" class="form-control"
                                     id="mobile" placeholder="Mobile No">
                             </div>
                             <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
                                 <label for="phone">Password</label>
-                                <input type="text" ngModel="{{editPassenger.password}}" name="password"
+                                <input type="password" ngModel="{{password}}" name="password"
                                     class="form-control" id="phone" placeholder="Password">
                             </div>
                         </div><br />
@@ -104,10 +91,17 @@
                             <button (click)="onUpdatePassenger(editForm.value)" class="btn btn-success">Save</button>
                         </div><br />
                     </form>
-
                 </div>
-
             </div>
+            
+            <form #creditForm="ngForm" (ngSubmit)="onAddCredit(creditForm)">
+                <div class="col-md-12 text-center">
+                    <input type="text" ngModel name="credit" id="credit" placeholder="">
+                </div><br />
+                <div class="col-md-12 text-center">
+                    <button id="credit-form" type="submit" class="btn btn-success">Add Credit</button>
+                </div><br />
+            </form>
 
         </div>
     </div>
