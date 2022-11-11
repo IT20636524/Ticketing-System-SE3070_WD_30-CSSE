@@ -10,12 +10,14 @@ public class Account implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
+    private String accNo;
     private String credit;
 
     public Account() {
     }
 
-    public Account(String credit) {
+    public Account(String accNo, String credit) {
+        this.accNo = accNo;
         this.credit = credit;
     }
 
@@ -25,6 +27,14 @@ public class Account implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getAccNo() {
+        return accNo;
+    }
+
+    public void setAccNo(String accNo) {
+        this.accNo = accNo;
     }
 
     public String getCredit() {
@@ -39,6 +49,7 @@ public class Account implements Serializable {
     public String toString() {
         return "Account{" +
                 "id=" + id +
+                ", accNo='" + accNo + '\'' +
                 ", credit='" + credit + '\'' +
                 '}';
     }

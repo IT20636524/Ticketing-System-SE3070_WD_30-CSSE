@@ -13,14 +13,15 @@ import { AccountService } from '../account/account.service';
 })
 export class ProfileComponent implements OnInit {
   public passengers: Passenger[] = [];
-  public viewPassenger!: Passenger;
-  public editPassenger!: Passenger;
+  
   user !: Passenger;
   id!: number;
   fullName!: string;
   email!: string;
   mobile!: string;
   password!: string;
+  acc!: Account;
+  credit!: string;
 
   constructor(
     private passengerService: PassengerService,
@@ -30,6 +31,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPassengers();
+    this.getCredit();
   }
 
 
@@ -62,8 +64,21 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  public getCredit(): void {
+    this.accountService.getAccounts().subscribe(
+      (response: Account[]) => {
+        this.acc = response[0];
+        this.credit = this.acc.credit;
+        console.log(response)
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
   public onAddCredit(creditForm: NgForm): void {
-    document.getElementById('credit-form')?.click();
+    document.getElementById('add-credit-form')?.click();
     this.accountService.addAccount(creditForm.value).subscribe(
       (response: Account) => {
         console.log(response);
@@ -75,6 +90,18 @@ export class ProfileComponent implements OnInit {
         creditForm.reset();
       }
     );
+  }
+  public onOpenModal(mode: string): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if(mode === 'add') {
+      button.setAttribute('data-target', '#addCreditModal');
+    }
+    container?.appendChild(button);
+    button.click();
   }
 
 }
