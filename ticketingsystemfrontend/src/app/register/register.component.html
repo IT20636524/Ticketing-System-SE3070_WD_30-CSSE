@@ -22,10 +22,12 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"><i
                                                         class="fa-solid fa-user"></i></span>
-                                                <input required type="text" ngModel name="fullName" #fullName="ngModel" class="form-control flex-nowrap"
-                                                     placeholder="Your Name" aria-label="Your Name"
-                                                    aria-describedby="addon-wrapping">
-                                                    <div class="alert alert-danger" *ngIf="fullName.touched && fullName.errors?.['required']">Full name is required</div>
+                                                <input required type="text" ngModel name="fullName" #fullName="ngModel"
+                                                    class="form-control flex-nowrap" placeholder="Your Name"
+                                                    aria-label="Your Name" aria-describedby="addon-wrapping">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="fullName.touched && fullName.errors?.['required']">Full name
+                                                    is required</div>
                                             </div>
                                         </div>
 
@@ -35,8 +37,9 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"><i
                                                         class="fa-solid fa-user"></i></span>
-                                                <input type="text" ngModel name="nic" #nic="ngModel"  class="form-control" placeholder="Your NIC"
-                                                     aria-label="Your Name" aria-describedby="addon-wrapping">
+                                                <input type="text" ngModel name="nic" #nic="ngModel"
+                                                    class="form-control" placeholder="Your NIC" aria-label="Your Name"
+                                                    aria-describedby="addon-wrapping">
                                             </div>
                                         </div>
 
@@ -46,9 +49,9 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"> <i
                                                         class="fa-regular fa-envelope"></i></span>
-                                                <input type="email" ngModel name="email" #email="ngModel" class="form-control"
-                                                    placeholder="Your Email"  aria-label="Your Email"
-                                                    aria-describedby="addon-wrapping">
+                                                <input type="email" ngModel name="email" #email="ngModel"
+                                                    class="form-control" placeholder="Your Email"
+                                                    aria-label="Your Email" aria-describedby="addon-wrapping">
                                             </div>
                                         </div>
 
@@ -58,9 +61,10 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"> <i
                                                         class="fa-solid fa-phone"></i></span>
-                                                <input type="text" ngModel name="mobile" #mobile="ngModel"  class="form-control"
-                                                    placeholder="Your Mobile No" aria-label="Your Mobile"
-                                                    aria-describedby="addon-wrapping" maxlength="10">
+                                                <input type="text" ngModel name="mobile" #mobile="ngModel"
+                                                    class="form-control" placeholder="Your Mobile No"
+                                                    aria-label="Your Mobile" aria-describedby="addon-wrapping"
+                                                    maxlength="10">
                                             </div>
                                         </div>
 
@@ -71,9 +75,9 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"> <i
                                                         class="fa fa-lock" aria-hidden="true"></i></span>
-                                                <input type="password" ngModel name="password" #password="ngModel" class="form-control"
-                                                    placeholder="New Password"  aria-label="Your Email"
-                                                    aria-describedby="addon-wrapping">
+                                                <input type="password" ngModel name="password" #password="ngModel"
+                                                    class="form-control" placeholder="New Password"
+                                                    aria-label="Your Email" aria-describedby="addon-wrapping">
                                             </div>
 
                                         </div>
@@ -84,8 +88,8 @@
                                             <div class="input-group flex-nowrap">
                                                 <span class="input-group-text" id="addon-wrapping"><i class="fa fa-lock"
                                                         aria-hidden="true"></i></span>
-                                                <input type="password" ngModel name="confirmPassword" class="form-control"
-                                                    placeholder="Confirm password" 
+                                                <input type="password" ngModel name="confirmPassword"
+                                                    class="form-control" placeholder="Confirm password"
                                                     aria-label="Your Email" aria-describedby="addon-wrapping">
                                             </div>
 
@@ -109,32 +113,32 @@
             <div class="d-flex ">
                 <!-- <button type="button"
                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button> -->
-                <button type="button"  class="btn btn-success btn-rounded register_btn col-md-3">Back</button>
-                <button type="submit" id="add-passenger-form" 
+                <button type="button" class="btn btn-success btn-rounded register_btn col-md-3">Back</button>
+                <button type="submit" id="add-passenger-form"
                     class="btn btn-success btn-rounded register_btn2 col-md-3">Register</button>
             </div>
         </form>
         <br /><br /><br />
         <div class="container">
-            <!-- <button (click)="openModal()">open modal</button> -->
+            <!-- <button (click)="download()">pdf</button> -->
             <!-- <qrcode [qrdata]="myAngularxQrCode" [errorCorrectionLevel]="'M'"></qrcode> -->
         </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Download QR</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Download QR</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body justify-content-center" id="qr">
+                            <qrcode [qrdata]="myAngularxQrCode" [errorCorrectionLevel]="'M'"></qrcode>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="doSomething()">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="download()">Download</button>
+                    </div>
                 </div>
-                <div class="modal-body justify-content-center">
-                    <qrcode [qrdata]="myAngularxQrCode" [errorCorrectionLevel]="'M'"></qrcode>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" (click)="doSomething()">Close</button>
-                  <button type="button" class="btn btn-primary" >Download</button>
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
     </div>
 </body>

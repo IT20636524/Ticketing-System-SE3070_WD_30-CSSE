@@ -1,12 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { VERSION } from '@angular/platform-browser-dynamic';
+import jsPDF from 'jspdf';
 import { Passenger } from './passenger';
 import { PassengerService } from './passenger.service';
-import {MatDialogModule} from '@angular/material/dialog'
+import html2canvas from 'html2canvas'
 
-declare var window:any;
+declare var window: any;
+
+// pdf
+// @ViewChild('content', {static:false}) el!: ElementRef<HTMLElement>;
+
 
 @Component({
   selector: 'app-register',
@@ -16,18 +21,14 @@ declare var window:any;
 export class RegisterComponent implements OnInit {
 
   public passengers!: Passenger[];
-  myAngularxQrCode:any;
+  myAngularxQrCode: any;
 
-  formModal:any;
-  
+  formModal: any;
 
-  constructor(private passengerService:PassengerService) {
-    this.myAngularxQrCode="Your Qr code data string";
+
+  constructor(private passengerService: PassengerService) {
+    
   }
-
-  // openDialog(){
-  //   this.dialogRef.openDialog(PopUpComponent);
-  // }
 
   ngOnInit(): void {
     this.getPassengers();
@@ -36,40 +37,66 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  //to open moadl
-  openModal(){
+  //download pdf
+  download(){
+      var element= <HTMLElement> document.getElementById("qr");
+      html2canvas(element).then((canvas) => {
+        var imgData = canvas.toDataURL('image/png')
+        var doc = new jsPDF()
+        var imageHeight = canvas.height*208/canvas.width;
+        doc.addImage(imgData,0,0,208,imageHeight)
+        doc.save("image.pdf")
+      })
+  }
+
+  //to open modal
+  openModal() {
     this.formModal.show();
   }
 
-  doSomething(){
+  //to close modal
+  doSomething() {
     this.formModal.hide();
   }
 
-  public getPassengers(): void{
+  //to create pdf
+  // makePDF() {
+  //   let pdf = new jsPDF('p','pt','a4');
+  //   pdf.html(this.el.nativeElement,{
+  //     callback:(pdf)=> {
+  //       pdf.save("sample.pdf");
+  //     }
+  //   })
+  // }
+
+  public getPassengers(): void {
     this.passengerService.getPassengers().subscribe(
       (response: Passenger[]) => {
         this.passengers = response;
-        console.log(this.passengers);  
+        console.log(this.passengers);
       },
-      (error:HttpErrorResponse) => {
+      (error: HttpErrorResponse) => {
         alert(error.message);
         console.log('error in get')
-      } 
+      }
     );
   }
 
-  public onAddPassenger(addForm:NgForm):void{
+  public onAddPassenger(addForm: NgForm): void {
     document.getElementById('add-passenger-form')?.click();
     this.passengerService.addPassenger(addForm.value).subscribe(
-      (response:Passenger) => {
+      (response: Passenger) => {
         console.log(response);
         this.getPassengers();
         addForm.reset();
+        localStorage.setItem('id', response.id.toString());
+        console.log(localStorage.getItem('id'));
+        this.myAngularxQrCode = localStorage.getItem('id');
         alert('successful');
-        this.openModal();    
-        
+        this.openModal();
+
       },
-      (error:HttpErrorResponse) => {
+      (error: HttpErrorResponse) => {
         alert(error.message);
         addForm.reset();
       }
