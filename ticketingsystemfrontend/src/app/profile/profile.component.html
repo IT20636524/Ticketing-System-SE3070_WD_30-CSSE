@@ -10,9 +10,8 @@
                                 <div class="card-body text-center">
                                     <img src="https://w0.peakpx.com/wallpaper/107/46/HD-wallpaper-best-pose-for-profile-for-men-profile-pose-men-best-glasses.jpg"
                                         alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"><br /><br />
-                                    <button type="button"
-                                            class="btn btn-outline-primary ms-1">Upload
-                                            Image</button>
+                                    <button type="button" class="btn btn-outline-primary ms-1">Upload
+                                        Image</button>
                                     <div class="d-flex justify-content-center mb-2">
                                     </div>
                                 </div>
@@ -25,7 +24,7 @@
                                         <div class="col-sm-5">
                                             <h4>
                                                 {{fullName}}
-                                                <br/><br/>        
+                                                <br /><br />
                                             </h4>
                                         </div>
                                     </div>
@@ -46,6 +45,7 @@
                                             <div>{{mobile}}</div>
                                         </div>
                                     </div>
+                                    <hr>
                                 </div>
                             </div>
                         </div>
@@ -60,73 +60,80 @@
                             </div>
                         </div>
                     </div><br />
-
-                    <form #editForm="ngForm">
+                    
+                    <form #editForm="ngForm" style="margin-left: 150px;">
+                        
                         <div class="row">
-                            <div class="col-sm-5 col-md-6">
+                            <div class="col-sm-5">
                                 <label for="name">Email</label>
-                                <input type="email" ngModel="{{email}}" name="email" class="form-control"
-                                    id="email" aria-describedby="emailHelp" placeholder="Email">
+                                <input type="email" ngModel="{{email}}" name="email" class="form-control" id="email"
+                                    aria-describedby="emailHelp" placeholder="Email">
                             </div>
-                            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                            <div class="col-sm-5 offset-sm-2 col-md-5 offset-md-0">
                                 <label for="email">Full Name</label>
-                                <input type="text" ngModel="{{fullName}}" name="fullName"
-                                    class="form-control" id="fullName" placeholder="Full Name">
+                                <input type="text" ngModel="{{fullName}}" name="fullName" class="form-control"
+                                    id="fullName" placeholder="Full Name">
                             </div>
-                        </div>
+                        </div><br/>
                         <div class="row">
-                            <div class="col-sm-6 col-md-5 col-lg-6">
+                            <div class="col-sm-5">
                                 <label for="course">Mobile No</label>
-                                <input type="text" ngModel="{{mobile}}" name="mobile" class="form-control"
-                                    id="mobile" placeholder="Mobile No">
+                                <input type="text" ngModel="{{mobile}}" name="mobile" class="form-control" id="mobile"
+                                    placeholder="Mobile No">
                             </div>
-                            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
+                            <div class="col-sm-5 offset-sm-2 col-md-5 offset-md-0">
                                 <label for="phone">Password</label>
-                                <input type="password" ngModel="{{password}}" name="password"
-                                    class="form-control" id="phone" placeholder="Password">
+                                <input type="password" ngModel="{{password}}" name="password" class="form-control"
+                                    id="phone" placeholder="Password">
                             </div>
-                        </div><br />
-                        <div class="col-md-12 text-center">
+                        </div><br/><br/>
+                        <div class="col-md-10 text-center">
                             <button (click)="onUpdatePassenger(editForm.value)" class="btn btn-success">Save</button>
                         </div><br />
                     </form>
                 </div>
             </div>
-                
-                <div class="col-md-12 text-center">
-                    <button (click)="onOpenModal('add')" id="credit-form" type="submit" class="btn btn-success">Add Credit</button>
-                    <div>{{credit}}</div>
-                </div><br />
 
-            <div class="modal fade" id="addCreditModal" tabindex="-1" role="dialog" aria-labelledby="addCreditModalLabel" aria-hidden="true">
+            <div class="col-md-12 text-center">
+                <button (click)="onOpenModal('add')" id="credit-form" type="submit" class="btn btn-success">Add
+                    Credit</button>
+                Rs.{{credit}}
+            </div><br />
+
+            <div class="modal fade" id="addCreditModal" tabindex="-1" role="dialog"
+                aria-labelledby="addCreditModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Add Credit</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Credit</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form #creditForm="ngForm" (ngSubmit)="onAddCredit(creditForm)">
+                                <div class="form-group">
+                                    <label for="accNo">Account No</label>
+                                    <input type="text" ngModel name="accNo" class="form-control" id="accNo"
+                                        placeholder="" required>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label for="credit">Credit Amount</label>
+                                    <input type="text" ngModel name="credit" class="form-control" id="credit"
+                                        placeholder="" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="add-credit-form" class="btn btn-light"
+                                        data-dismiss="modal">Close</button>
+                                    <button [disabled]="creditForm.invalid" type="submit" class="btn btn-success">Save
+                                        Changes</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                      <form #creditForm="ngForm" (ngSubmit)="onAddCredit(creditForm)">
-                        <div class="form-group">
-                          <label for="accNo">Account No</label>
-                          <input type="text" ngModel name="accNo" class="form-control" id="accNo" placeholder="" required>
-                        </div>
-                        <br/>
-                        <div class="form-group">
-                          <label for="credit">Credit Amount</label>
-                          <input type="text" ngModel name="credit" class="form-control" id="credit" placeholder="" required>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" id="add-credit-form" class="btn btn-light" data-dismiss="modal">Close</button>
-                          <button [disabled]="creditForm.invalid" type="submit" class="btn btn-success">Save Changes</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
                 </div>
-              </div>
+            </div>
 
         </div>
     </div>
