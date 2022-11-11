@@ -2,9 +2,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { VERSION } from '@angular/platform-browser-dynamic';
-import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from 'ngx-qrcode2';
 import { Passenger } from './passenger';
 import { PassengerService } from './passenger.service';
+import {MatDialogModule} from '@angular/material/dialog'
+import { PopUpComponent } from '../pop-up/pop-up.component';
+
+declare var window:any;
 
 @Component({
   selector: 'app-register',
@@ -12,27 +15,42 @@ import { PassengerService } from './passenger.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  // title = 'QRcodes';
-  // name = 'Angular ' + VERSION.major;
-  // elementType = NgxQrcodeElementTypes.URL;
-  // correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  // value = 'https://www.youtube.com/c/TestyCodies/';
-
-  // log(x:any) {console.log(x);}
 
   public passengers!: Passenger[];
+  myAngularxQrCode:any;
 
-  constructor(private passengerService:PassengerService) { }
+  formModal:any;
+  
+
+  constructor(private passengerService:PassengerService) {
+    this.myAngularxQrCode="Your Qr code data string";
+  }
+
+  // openDialog(){
+  //   this.dialogRef.openDialog(PopUpComponent);
+  // }
 
   ngOnInit(): void {
     this.getPassengers();
+    this.formModal = new window.bootstrap.Modal(
+      document.getElementById("exampleModal")
+    );
+  }
+
+  //to open moadl
+  openModal(){
+    this.formModal.show();
+  }
+
+  doSomething(){
+    this.formModal.hide();
   }
 
   public getPassengers(): void{
     this.passengerService.getPassengers().subscribe(
       (response: Passenger[]) => {
         this.passengers = response;
-        console.log(this.passengers);
+        console.log(this.passengers);  
       },
       (error:HttpErrorResponse) => {
         alert(error.message);
@@ -49,6 +67,8 @@ export class RegisterComponent implements OnInit {
         this.getPassengers();
         addForm.reset();
         alert('successful');
+        this.openModal();    
+        
       },
       (error:HttpErrorResponse) => {
         alert(error.message);

@@ -15,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FormsModule } from '@angular/forms';
-import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { QRCodeModule } from 'angularx-qrcode';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 const appRoute: Routes = [
  
@@ -39,15 +41,17 @@ const appRoute: Routes = [
     AdminFareDashboardComponent,
     AdminDashboardComponent,
     ProfileComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxQRCodeModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    QRCodeModule,
+    MatDialogModule
   ],
   exports: [RouterModule],
   providers: [],
