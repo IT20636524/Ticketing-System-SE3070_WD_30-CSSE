@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface BusScheduleRepo extends JpaRepository<BusSchedule, Long> {
     Optional<BusSchedule> findBusScheduleById(Long id);
 
-    void deleteBusScheduleById(Long id);
+//    void deleteBusScheduleById(Long id);
 
 
 }

@@ -40,7 +40,7 @@ public class BusScheduleResource {
     @PutMapping("/update")
     public ResponseEntity<BusSchedule> updateBusSchedule(@RequestBody BusSchedule busSchedule){
         BusSchedule updateBusSchedule = busScheduleService.updateBusSchedule(busSchedule);
-        return new ResponseEntity<>(updateBusSchedule, HttpStatus.CREATED);
+        return new ResponseEntity<>(updateBusSchedule, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")

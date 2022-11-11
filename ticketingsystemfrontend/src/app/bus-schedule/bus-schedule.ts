@@ -5,5 +5,4 @@ export interface BusSchedule {
     date: string;
     timePeriod: string;
     busNo: string;
-    
   }

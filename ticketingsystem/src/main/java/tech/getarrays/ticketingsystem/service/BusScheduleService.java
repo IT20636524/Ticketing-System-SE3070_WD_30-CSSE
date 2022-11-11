@@ -37,7 +37,7 @@ public class BusScheduleService {
     }
 
     public void deleteBusSchedule(Long id){
-        busScheduleRepo.deleteBusScheduleById(id);
+        busScheduleRepo.deleteById(id);
     }
 
 }
