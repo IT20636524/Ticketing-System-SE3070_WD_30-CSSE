@@ -17,7 +17,6 @@ import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PopUpComponent } from './pop-up/pop-up.component';
 
 const appRoute: Routes = [
  
@@ -42,7 +41,6 @@ const appRoute: Routes = [
     AdminDashboardComponent,
     ProfileComponent,
     HomeHeaderComponent,
-    PopUpComponent
   ],
   imports: [
     BrowserModule,

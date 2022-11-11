@@ -5,7 +5,6 @@ import { VERSION } from '@angular/platform-browser-dynamic';
 import { Passenger } from './passenger';
 import { PassengerService } from './passenger.service';
 import {MatDialogModule} from '@angular/material/dialog'
-import { PopUpComponent } from '../pop-up/pop-up.component';
 
 declare var window:any;
 
