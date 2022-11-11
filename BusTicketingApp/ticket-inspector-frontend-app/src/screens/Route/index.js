@@ -60,7 +60,7 @@ const RouteScreen = ({ navigation }) => {
 
   //get journey list
   const getData = () => {
-    axios.get(`http://192.168.8.100:3001/api/journey`, {
+    axios.get(`http://192.168.1.101:3001/api/journey`, {
       headers: {
         'Content-Type': 'application/json'
       }

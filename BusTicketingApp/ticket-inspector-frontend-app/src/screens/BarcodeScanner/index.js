@@ -38,7 +38,7 @@ export default function BarCodeScan(props) {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
 
-    axios.get(`http://192.168.8.100:3001/api/account/get/user/${data}`, {
+    axios.get(`http://192.168.1.101:3001/api/account/get/user/${data}`, {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -49,7 +49,7 @@ export default function BarCodeScan(props) {
         console.log(city);
 
         if (response.data.data[0].totalBalance >= city) {
-          axios.put(`http://192.168.8.100:3001/api/account/update/${data}`, { totalBalance: response.data.data[0].totalBalance - city })
+          axios.put(`http://192.168.1.101:3001/api/account/update/${data}`, { totalBalance: response.data.data[0].totalBalance - city })
             .then(function (response) {
               // handle success
               console.log(response.data.data);
