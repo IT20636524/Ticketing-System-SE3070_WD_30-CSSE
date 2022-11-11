@@ -15,11 +15,12 @@ import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './admin-fare-dashboard/search.pipe';
 import { ProfileComponent } from './profile/profile.component';
 import { BusScheduleComponent } from './bus-schedule/bus-schedule.component';
-import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 // import { BusScheduleAdminComponent } from './bus-schedule-admin/bus-schedule-admin.component';
 import { BusScheduleAdminDashComponent } from './bus-schedule-admin-dash/bus-schedule-admin-dash.component';
 import { CommonModule } from '@angular/common';
+import { QRCodeModule } from 'angularx-qrcode';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const appRoute: Routes = [
  
@@ -48,6 +49,7 @@ const appRoute: Routes = [
     HomeHeaderComponent,
     ProfileComponent,
     BusScheduleAdminDashComponent,
+    HomeHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -55,8 +57,9 @@ const appRoute: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxQRCodeModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    QRCodeModule,
+    MatDialogModule
   ],
   exports: [RouterModule],
   providers: [],
