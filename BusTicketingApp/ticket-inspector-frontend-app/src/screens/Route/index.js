@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button,ImageBackground } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
 });
 
 
+const localimage = require("../../assets/images/bg.png");
 
 const RouteScreen = ({ navigation }) => {
   const [routesindex, setRoutesindex] = useState("")
@@ -59,7 +60,7 @@ const RouteScreen = ({ navigation }) => {
 
   //get journey list
   const getData = () => {
-    axios.get(`http://192.168.1.104:3001/api/journey`, {
+    axios.get(`http://192.168.8.100:3001/api/journey`, {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -96,6 +97,7 @@ const RouteScreen = ({ navigation }) => {
   }
 
   return (
+    <ImageBackground source={localimage} resizeMode='cover' style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text style={{ marginBottom: 30, fontSize: 18 }}>Select the route :</Text>
       <Picker
@@ -115,6 +117,7 @@ const RouteScreen = ({ navigation }) => {
         title="Select"
         onPress={selectRoute} />
     </View>
+    </ImageBackground>
   );
 };
 export default RouteScreen;

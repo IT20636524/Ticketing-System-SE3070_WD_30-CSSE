@@ -5,6 +5,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BarCodeScan from "./src/screens/BarcodeScanner";
 import Home from "./src/screens/Home";
 import RouteScreen from "./src/screens/Route";
+import Dash from "./src/screens/Dash";
+import Splash from "./src/screens/Splash";
+
 
 
 function App() {
@@ -13,10 +16,14 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Route">
-        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-        <Stack.Screen name="Route" component={RouteScreen} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName="Splash">       
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Dash" component={Dash} />
+        <Stack.Screen name="Route" component={RouteScreen} />
+        <Stack.Screen name="Home" component={Home}  />
         <Stack.Screen name="BarCodeScan" component={BarCodeScan} />
+        
+       
       </Stack.Navigator>
     </NavigationContainer>
   );

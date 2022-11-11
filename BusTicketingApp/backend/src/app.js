@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import connectDB from './database';
 import routes from './routes/index.routes';
 
+
 dotenv.config();
 
 const app = express();
@@ -23,6 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => res.status(200).json({ message: 'eTravel Server Up and Running' }));
 
 app.use('/api', routes);
+
+
 
 connectDB();
 

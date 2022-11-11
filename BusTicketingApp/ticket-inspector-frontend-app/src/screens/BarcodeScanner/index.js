@@ -1,10 +1,12 @@
 
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button,ImageBackground, Image, TouchableOpacity } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { Picker } from '@react-native-picker/picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+
+const localimage = require("../../assets/images/scanbg.png");
 
 export default function BarCodeScan(props) {
   const [hasPermission, setHasPermission] = useState(null);
@@ -36,7 +38,7 @@ export default function BarCodeScan(props) {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
 
-    axios.get(`http://192.168.1.104:3001/api/account/get/user/${data}`, {
+    axios.get(`http://192.168.8.100:3001/api/account/get/user/${data}`, {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -47,7 +49,7 @@ export default function BarCodeScan(props) {
         console.log(city);
 
         if (response.data.data[0].totalBalance >= city) {
-          axios.put(`http://192.168.1.104:3001/api/account/update/${data}`, { totalBalance: response.data.data[0].totalBalance - city })
+          axios.put(`http://192.168.8.100:3001/api/account/update/${data}`, { totalBalance: response.data.data[0].totalBalance - city })
             .then(function (response) {
               // handle success
               console.log(response.data.data);
@@ -85,27 +87,33 @@ export default function BarCodeScan(props) {
   //Check permission and return the screens
   if (hasPermission === null) {
     return (
-      <View style={styles.container}>
+      <ImageBackground source={localimage} resizeMode='cover' style={{ flex: 1, alignItems: "center", justifyContent: "center",  alignItems: "center" }}>
+        <View >
         <Text>Requesting for camera permission</Text>
       </View>
+      </ImageBackground>
+    
     );
   }
   //works
   if (hasPermission === false) {
     return (
-      <View style={styles.container}>
+      <ImageBackground source={localimage} resizeMode='cover' style={{ flex: 1, alignItems: "center", justifyContent: "center", alignItems: "center" }}>
+      <View >
         <Text style={{ margin: 10 }}>No access to camera</Text>
         <Button
           title={"Allow Camera"}
           onPress={() => askForCameraPermission()}
         ></Button>
       </View>
+      </ImageBackground>
     );
   }
   //Return the View
   return (
-    <View style={styles.container}>
-      <Text style={{ fontSize: 18, marginBottom: 10 }}>{city}</Text>
+    <ImageBackground source={localimage} resizeMode='cover' style={{ flex: 1, alignItems: "center", justifyContent: "center", alignItems: "center"}}>
+    <View >
+      <Text style={{ fontSize: 18, marginBottom: 10, top:50 }}>{city}</Text>
       <Picker
         style={styles.picker}
         selectedValue={city}
@@ -127,46 +135,54 @@ export default function BarCodeScan(props) {
           style={{ height: 400, width: 400 }}
         />
       </View>
-      {issucess == 1 ? <Text style={styles.maintext}>Payment successful</Text> : null}
+      <View style={{height:100}}>
+      {issucess == 1 ? <Image source={require('../../assets/images/scanbtn.png')} style={{height:100, width:200,top:50,left:30}} /> : null}
       {issucess == 2 ? <Text style={styles.maintexta}>Payment failed</Text> : null}
 
-
+     
+      
+      </View>
       {scanned && (
-        <Button
-          title={"Scan again? "}
-          onPress={() => setScanned(false)}
-          color="tomato"
-        />
+        <TouchableOpacity onPress={() => setScanned(false)}>
+      <Image source={require("../../assets/images/scn.png")} style={{top:70,left:10}}></Image>
+    </TouchableOpacity>
+      
+        
       )}
-    </View>
+    </View>  
+    </ImageBackground>
+    
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
   },
   barcodebox: {
     alignItems: "center",
     justifyContent: "center",
-    height: 300,
-    width: 300,
+    height: 250,
+    width: 250,
     overflow: "hidden",
     borderRadius: 30,
     backgroundColor: "tomato",
+    top:30
   },
   maintext: {
     fontSize: 20,
     margin: 30,
-    color: "green"
+    color: "#000",
+    top:50
   },
   maintexta: {
     fontSize: 20,
     margin: 30,
-    color: "red"
+    color: "#000",
+    top:50
   },
   picker: {
     height: 50,
@@ -181,6 +197,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    borderRadius: 12
+    borderRadius: 12,
+    top:50
+  },
+  scanbtn:{
+    top: 10,
   }
 });

@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+const localimage = require("../../assets/images/bg.png");
 const HomeScreen = ({ navigation }) => {
+   //navigate home page
+   const ChangeRoute = async () => {
+  
+    navigation.navigate('Route')
+  }
+
   const [city, setCity] = useState({
     "_id": "6364f6cc5dba8ead567d68cc",
     "journeyId": "JID-1",
@@ -37,8 +45,10 @@ const HomeScreen = ({ navigation }) => {
     }
   }, [])
   return (
-    <SafeAreaView style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      {/* <View style={styles.title}>
+    <ImageBackground source={localimage} resizeMode='cover' style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+   
+    <SafeAreaView >
+       {/* <View style={styles.title}>
         <Text style={{ fontSize: 28, fontWeight: '700', color: 'gray' }}>Home</Text>
       </View> */}
       <Text style={{ fontSize: 22, fontWeight: '600', color: 'gray', }}>{city?.startFrom + " - " + city?.endsAt}</Text>
@@ -55,13 +65,12 @@ const HomeScreen = ({ navigation }) => {
           <Text>Transaction</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={styles.bottomView}
-        onPress={() => navigation.navigate('Route')}
-      >
-        <Text style={{ color: '#2196f3', }}>Change Route</Text>
-      </TouchableOpacity>
+     
+      <Button
+        title="Change Route"
+        onPress={ChangeRoute} />
     </SafeAreaView>
+    </ImageBackground>
   );
 };
 

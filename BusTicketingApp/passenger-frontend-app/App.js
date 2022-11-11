@@ -5,7 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import Home from "./src/screens/Home/Home";
-import Login from "./src/screens/Login/Login";
 import MyQr from "./src/screens/MyQr/MyQr";
 import Splash from './src/screens/Pages/Splash';
 
@@ -19,7 +18,6 @@ export default function App() {
         <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="MyQr" options={{ title:'My QR Code' }} component={MyQr} />
          
         </Stack.Navigator>
