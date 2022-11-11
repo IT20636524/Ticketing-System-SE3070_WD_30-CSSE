@@ -19,4 +19,7 @@ export class PassengerService {
     public getPassengers() : Observable<Passenger[]> {
         return this.http.get<Passenger[]>(`${this.apiServerUrl}/passenger/all`);
     }
+    public updatePassenger(passenger : Passenger) : Observable<Passenger> {
+        return this.http.put<Passenger>(`${this.apiServerUrl}/passenger/update`, passenger);
+      }
 }

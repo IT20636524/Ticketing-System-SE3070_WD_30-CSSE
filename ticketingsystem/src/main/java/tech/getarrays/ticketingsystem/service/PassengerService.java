@@ -31,4 +31,10 @@ public class PassengerService {
     public List<Passenger> findAllPassengers() {
         return passengerRepo.findAll();
     }
+    public Passenger updatePassenger(Passenger passenger) {
+        return passengerRepo.save(passenger);
+    }
+    public void deletePassenger(Long id) {
+        passengerRepo.deletePassengerById(id);
+    }
 }

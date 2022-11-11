@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 export class ProfileComponent implements OnInit {
   public passengers: Passenger[] = [];
   public viewPassenger!: Passenger;
+  public editPassenger!: Passenger;
 
   constructor(private passengerService : PassengerService) { }
 
@@ -25,6 +26,17 @@ export class ProfileComponent implements OnInit {
         this.passengers = response;
       },
       (error : HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+  public onUpdatePassenger(passenger : Passenger) : void{
+    this.passengerService.updatePassenger(passenger).subscribe(
+      (response: Passenger) => {
+        console.log(response);
+        // this.getPassengers();
+      },
+      (error: HttpErrorResponse) => {
         alert(error.message);
       }
     );

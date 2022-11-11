@@ -1,14 +1,16 @@
 <section style="background-color: #eee;">
     <div class="container py-5">
-        <div class="row">
+
+        <div class="row" id="viewProfile">
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="card mb-4">
+
                                 <div class="card-body text-center">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                                        alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                    <img src="https://w0.peakpx.com/wallpaper/107/46/HD-wallpaper-best-pose-for-profile-for-men-profile-pose-men-best-glasses.jpg"
+                                        alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"><br /><br />
 
                                     <p class="text-muted mb-1"> <button type="button"
                                             class="btn btn-outline-primary ms-1">Upload
@@ -18,44 +20,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div *ngFor="let passenger of passengers" class="col-lg-6">
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-5">
-                                            <!-- <h4><form #viewForm="ngForm">
-                                                <input type="hidden" ngModel="{{viewPassenger.id}}" name="id" class="form-control" id="id" placeholder="Email">
-                                                <input type="hidden" ngModel="{{viewPassenger.passengerCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
-                                                <p class="mb-0">{{viewPassenger.fullName}}</p>
-                                                <input type="email" ngModel="{{viewPassenger.fullName}}" name="email" class="form-control" id="email" placeholder="Email"></form>
-                                            </h4> -->
+                                            <h4>
+
+                                                <input type="hidden" ngModel="{{passenger.id}}" name="id"
+                                                    class="form-control" id="id" placeholder="Email">
+                                                <input type="hidden" ngModel="{{passenger.passengerCode}}"
+                                                    name="userCode" class="form-control" id="userCode"
+                                                    placeholder="Email">
+                                                <p class="mb-0">{{passenger.fullName}}</p>
+
+                                            </h4>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <p class="mb-0">User ID</p>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <p class="text-muted mb-0">PS19920</p>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <p class="mb-0">User Name</p>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <p class="text-muted mb-0">Hansaka</p>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <p class="mb-0">Email</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">hansakaeranda@gmail.com</p>
+                                            <p class="text-muted mb-0">{{passenger.email}}</p>
                                         </div>
                                     </div>
                                     <hr>
@@ -64,7 +51,7 @@
                                             <p class="mb-0">Mobile No</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">+9477 XXX XXXX</p>
+                                            <p class="text-muted mb-0">{{passenger.mobile}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +60,7 @@
                         <div class="col-lg-3">
                             <div class="card mb-6">
                                 <div class="card-body text-center">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                    <img src="https://www.hellotech.com/guide/wp-content/uploads/2020/05/HelloTech-qr-code-1024x1024.jpg"
                                         alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                     <div class="d-flex justify-content-center mb-2">
                                     </div>
@@ -81,6 +68,42 @@
                             </div>
                         </div>
                     </div><br />
+                    <form #editForm="ngForm">
+
+                        <div class="row">
+                            <div class="col-sm-5 col-md-6">
+                                <label for="name">Email</label>
+                                <input type="email" ngModel="{{editPassenger.email}}" name="email" class="form-control"
+                                    id="email" aria-describedby="emailHelp" placeholder="Email">
+                            </div>
+                            <input type="hidden" ngModel="{{editPassenger.id}}" name="id" class="form-control" id="id"
+                                placeholder="Email">
+                            <input type="hidden" ngModel="{{editPassenger.passengerCode}}" name="userCode"
+                                class="form-control" id="userCode" placeholder="Email">
+
+                            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                                <label for="email">Full Name</label>
+                                <input type="text" ngModel="{{editPassenger.fullName}}" name="fullName"
+                                    class="form-control" id="fullName" placeholder="Full Name">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-5 col-lg-6">
+                                <label for="course">Mobile No</label>
+                                <input type="text" ngModel="{{editPassenger.mobile}}" name="mobile" class="form-control"
+                                    id="mobile" placeholder="Mobile No">
+                            </div>
+                            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
+                                <label for="phone">Password</label>
+                                <input type="text" ngModel="{{editPassenger.password}}" name="password"
+                                    class="form-control" id="phone" placeholder="Password">
+                            </div>
+                        </div><br />
+                        <div class="col-md-12 text-center">
+                            <button (click)="onUpdatePassenger(editForm.value)" class="btn btn-success">Save</button>
+                        </div><br />
+                    </form>
 
                 </div>
 
