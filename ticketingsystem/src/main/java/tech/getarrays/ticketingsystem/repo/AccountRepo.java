@@ -8,4 +8,6 @@ import java.util.Optional;
 
 public interface AccountRepo extends JpaRepository<Account, Long> {
     Account findAccountById(Long id);
+
+    void deleteAccountById(Long id);
 }

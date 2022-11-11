@@ -1,13 +1,12 @@
 <section style="background-color: #eee;">
     <div class="container py-5">
 
-        <div class="row">
+        <div class="row" id="main-container">
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="card mb-4">
-
                                 <div class="card-body text-center">
                                     <img src="https://w0.peakpx.com/wallpaper/107/46/HD-wallpaper-best-pose-for-profile-for-men-profile-pose-men-best-glasses.jpg"
                                         alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"><br /><br />
@@ -26,7 +25,7 @@
                                         <div class="col-sm-5">
                                             <h4>
                                                 {{fullName}}
-                                                <br/>       
+                                                <br/><br/>        
                                             </h4>
                                         </div>
                                     </div>
@@ -93,15 +92,41 @@
                     </form>
                 </div>
             </div>
-            
-            <form #creditForm="ngForm" (ngSubmit)="onAddCredit(creditForm)">
+                
                 <div class="col-md-12 text-center">
-                    <input type="text" ngModel name="credit" id="credit" placeholder="">
+                    <button (click)="onOpenModal('add')" id="credit-form" type="submit" class="btn btn-success">Add Credit</button>
+                    <div>{{credit}}</div>
                 </div><br />
-                <div class="col-md-12 text-center">
-                    <button id="credit-form" type="submit" class="btn btn-success">Add Credit</button>
-                </div><br />
-            </form>
+
+            <div class="modal fade" id="addCreditModal" tabindex="-1" role="dialog" aria-labelledby="addCreditModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Add Credit</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form #creditForm="ngForm" (ngSubmit)="onAddCredit(creditForm)">
+                        <div class="form-group">
+                          <label for="accNo">Account No</label>
+                          <input type="text" ngModel name="accNo" class="form-control" id="accNo" placeholder="" required>
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                          <label for="credit">Credit Amount</label>
+                          <input type="text" ngModel name="credit" class="form-control" id="credit" placeholder="" required>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" id="add-credit-form" class="btn btn-light" data-dismiss="modal">Close</button>
+                          <button [disabled]="creditForm.invalid" type="submit" class="btn btn-success">Save Changes</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
         </div>
     </div>

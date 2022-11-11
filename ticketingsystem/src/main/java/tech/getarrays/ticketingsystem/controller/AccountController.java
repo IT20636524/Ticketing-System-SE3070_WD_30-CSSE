@@ -33,4 +33,10 @@ public class AccountController {
         Account newAccount = accountService.addAccount(account);
         return new ResponseEntity<>(newAccount, HttpStatus.CREATED);
     }
+
+    @DeleteMapping ("/delete/{id}")
+    public ResponseEntity<?> deleteAccount(@PathVariable("id") Long id) {
+        accountService.deleteAccount(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

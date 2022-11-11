@@ -28,4 +28,8 @@ public class AccountService {
         return accountRepo.findAccountById(id);
     }
 
+    public void deleteAccount(Long id) {
+        accountRepo.deleteAccountById(id);
+    }
+
 }
