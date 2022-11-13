@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+var bcrypt = require('bcryptjs');
 import { getOneUser, createUser } from "../repository/user";
 import { createForeignPassenger } from "../repository/foriegnPassenger";
 import { createLocalPassenger } from "../repository/localPassenger";
