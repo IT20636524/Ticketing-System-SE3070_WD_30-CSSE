@@ -1,14 +1,79 @@
 
-import { Image, TouchableOpacity, ImageBackground, StyleSheet, View, Text, TextInput } from "react-native";
+import { Image, TouchableOpacity, ImageBackground, StyleSheet, View, Text, TextInput, Alert } from "react-native";
 import React, { useState } from 'react';
-import { BottomSheet, Button, ListItem } from '@rneui/themed';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { BottomSheet, ListItem } from '@rneui/themed';
+import axios from 'axios';
 
 const localimage = require("../../assets/images/background/background_main.png");
 
 const Home = (props) => {
 
+  const [name, setName] = useState("");
+  const [nic, setNic] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+ 
   const [isVisible, setIsVisible] = useState(false);
+
+  async function handleSave() {
+    var data = {
+      "name":name,
+      "nic":nic,
+      "username":username,
+      "password":password
+      
+    }
+
+  
+  await axios({
+    url:"http://localhost:5000/api/passengers",
+      method:"POST",
+      data : data,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': "application/json"
+      }
+     
+    })
+      .then(function (response) {
+        // handle success
+        console.log(response);
+        setName("")
+        setNic("")
+        setPassword("")
+        setUsername("")
+        Alert.alert("added");
+       
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+        setName("")
+        setNic("")
+        setPassword("")
+        setUsername("")
+        Alert.alert("added");
+      })
+    
+    }
+  
+
+  const onChangeName = (value) =>{
+    setName(value);
+  }
+  const onChangeUsername = (value) =>{
+    setUsername(value);
+  }
+  const onChangeNic = (value) =>{
+    setNic(value);
+  }
+  const onChangePassword = (value) =>{
+    setPassword(value);
+  }
+
+
+
+ 
   const list = [
    
     {
@@ -21,13 +86,15 @@ const Home = (props) => {
       title: 'Register',
       containerStyle: { backgroundColor: 'green' },
       titleStyle: { color: 'white', left:150, fontSize: 20},
-      onPress: () => setIsVisible(false),
+      onPress: () => handleSave(),
     },
   ];
 
   const onPressqr = () => {
     props.navigation.navigate('MyQr');
   };
+
+
 
   return (
 
@@ -46,19 +113,19 @@ const Home = (props) => {
               </ListItem.Title>
               <View style={styles.inputContainer}>
                   <Text style={styles.labelText}>    Name       </Text>
-                  <TextInput style={styles.textInput} placeholder='Enter Name' />
+                  <TextInput style={styles.textInput} placeholder='Enter Name'  onChangeText={onChangeName}/>
                 </View>
                 <View style={styles.inputContainer}>
                   <Text style={styles.labelText}>    NIC          </Text>
-                  <TextInput style={styles.textInput} placeholder='Enter Name' />
+                  <TextInput style={styles.textInput} placeholder='Enter NIC'  onChangeText={onChangeNic}/>
                 </View>
                 <View style={styles.inputContainer}>
                   <Text style={styles.labelText}>    UserName</Text>
-                  <TextInput style={styles.textInput} placeholder='Enter Name' />
+                  <TextInput style={styles.textInput} placeholder='Enter UserName'  onChangeText={onChangeUsername}/>
                 </View>
                 <View style={styles.inputContainer}>
                   <Text style={styles.labelText}>    Password  </Text>
-                  <TextInput style={styles.textInput} placeholder='Enter Name' />
+                  <TextInput style={styles.textInput} placeholder='Enter Password'  onChangeText={onChangePassword}/>
                 </View>
              
             </ListItem.Content>
