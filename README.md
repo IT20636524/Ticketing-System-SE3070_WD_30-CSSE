@@ -9,7 +9,15 @@
 ### Member 4 - IT20653118 - Mr. Y.W.S.H.Wishvajith (IT20653118)
 
 ## Technologies:
-###### Springboot and Angular
+
+#### Web Application
+
 - Frontend : Angular
 - Backend : Springboot
 - IDE: VS code, Intellij IDE
+
+#### Mobile Application
+
+- Frontend : React Native
+- Backend : NodeJs
+- IDE: VS code
