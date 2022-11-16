@@ -52,7 +52,7 @@ const Home = (props) => {
         setNic("")
         setPassword("")
         setUsername("")
-        Alert.alert("added");
+       
       })
     
     }
