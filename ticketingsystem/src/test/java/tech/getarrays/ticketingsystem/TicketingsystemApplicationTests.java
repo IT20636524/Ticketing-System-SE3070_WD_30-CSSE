@@ -29,7 +29,7 @@ class TicketingsystemApplicationTests {
 	@Test
 	public void testCreatePassenger(){
 		Passenger passenger=new Passenger();
-		passenger.setId(6L);
+		passenger.setId(17L);
 		passenger.setEmail("sachin@test.com");
 		passenger.setFullName("Sachin");
 		passenger.setImageUrl("https://bootdey.com/img/Content/avatar/avatar3.png");
@@ -37,7 +37,7 @@ class TicketingsystemApplicationTests {
 		passenger.setNic("997055242");
 		passenger.setPassengerCode("aaf8142e-e0b3-4da1-b097-30fea1ab775b");
 		passengerRepo.save(passenger);
-		assertNotNull(passengerRepo.findPassengerById(5L).get());
+		assertNotNull(passengerRepo.findPassengerById(17L).get());
 	}
 
 	@Test
