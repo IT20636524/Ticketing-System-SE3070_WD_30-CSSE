@@ -54,13 +54,13 @@ class TicketingsystemApplicationTests {
 
 	@Test
 	public void testFindPassengerById(){
-		Optional<Passenger> passenger = passengerRepo.findPassengerById(5L);
-		assertEquals("Sachin",passenger.get().getFullName());
+		Optional<Passenger> passenger = passengerRepo.findPassengerById(1L);
+		assertEquals("Hansaka Eranda",passenger.get().getFullName());
 	}
 
 	@Test
 	public void testFindPassengerById2(){
-		Optional<Passenger> passenger = passengerRepo.findPassengerById(5L);
+		Optional<Passenger> passenger = passengerRepo.findPassengerById(1L);
 		assertFalse(passenger.isEmpty());
 	}
 
