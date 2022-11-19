@@ -48,11 +48,7 @@ const Home = (props) => {
       .catch(function (error) {
         // handle error
         console.log(error);
-        setName("")
-        setNic("")
-        setPassword("")
-        setUsername("")
-       
+
       })
     
     }
