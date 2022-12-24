@@ -61,7 +61,7 @@
         <th scope="col">Date</th>
         <th scope="col">Time Period</th>
         <th scope="col">Action</th>
-        <th scope="col">Action</th>
+        
       </tr>
     </thead>
     <tbody *ngFor="let busSchedule of busSchedules" id="main-container">
@@ -72,8 +72,11 @@
         <td>{{busSchedule?.arrivingLocation}}</td>
         <td>{{busSchedule?.date}}</td>
         <td>{{busSchedule?.timePeriod}}</td>
-        <td><a (click)="onOpenModal(busSchedule, 'edit')" class="btn tooltips" data-placement="top" data-original-title="Edit" style="color: #32cd32; width: 100px; font-size: 15px;">Edit</a></td>
-        <td><a (click)="onOpenModal(busSchedule, 'delete')" class="btn tooltips" data-placement="top" data-original-title="Delete" style="color: #32cd32; font-size: 15px;">Delete</a></td>
+        <td>
+         <a (click)="onOpenModal(busSchedule, 'edit')" class="btn tooltips" data-placement="top" data-original-title="Edit" style="color: #32cd32; width: 100px; font-size: 15px;">Edit</a>
+         <a (click)="onOpenModal(busSchedule, 'delete')" class="btn tooltips" data-placement="top" data-original-title="Delete" style="color: #32cd32; font-size: 15px;">Delete</a>
+      </td>
+    
       
       </tr>
     </tbody>
